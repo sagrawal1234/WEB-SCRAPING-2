@@ -22,17 +22,31 @@ star_names = []
 distance = []
 mass = []
 radius = []
-lum = []
+
 
 for i in range(1,len(temp_list)):
     star_names.append(temp_list[i][3])
     distance.append(temp_list[i][5])
     mass.append(temp_list[i][6])
     star_names.append(temp_list[i][7])
-    lum.append(temp_list[i][7]) 
+     
 
 
-df2 = pd.DataFrame(list(zip(star_names,distance,mass,radius,lum)),coloumns = ['star_names','distance','mass','radius','luminosity'])
+df2 = pd.DataFrame(list(zip(star_names,distance,mass,radius,lum)),coloumns = ['star_names','distance','mass','radius'])
 print(df2)
 
 df2.to_csv('bright_stars.csv')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
