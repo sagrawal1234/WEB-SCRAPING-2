@@ -4,7 +4,7 @@ import requests
 import csv
 import pandas as pd
 
-headers = ["name","distance" , "mass" , "radius","hyperlink"]
+headers = ["name","distance" , "mass" , "radius"]
 bright_stars_url = "https://en.wikipedia.org/wiki/List_of_brown_dwarfs"
 page = requests.get(bright_stars_url)
 print(page)
@@ -32,7 +32,7 @@ for i in range(1,len(temp_list)):
      
 
 
-df2 = pd.DataFrame(list(zip(star_names,distance,mass,radius,lum)),coloumns = ['star_names','distance','mass','radius'])
+df2 = pd.DataFrame(list(zip(star_names,distance,mass,radius)),coloumns = ['star_names','distance','mass','radius'])
 print(df2)
 
 df2.to_csv('bright_stars.csv')
