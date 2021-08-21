@@ -9,6 +9,7 @@ bright_stars_url = "https://en.wikipedia.org/wiki/List_of_brown_dwarfs"
 page = requests.get(bright_stars_url)
 print(page)
 
+bs = []
 soup = bs(page.text,'html.parser')
 star_table = soup.find('table')
 temp_list = []
@@ -22,7 +23,11 @@ star_names = []
 distance = []
 mass = []
 radius = []
+gravity = []
 
+for index,name in enumerate(star_names):
+  gravity = (float(mass[index])*5.972e+24)/(float(radius[index])*float(radius[index])*6371000*6371000)*6.674e-11
+  gravity.append(gravity)
 
 for i in range(1,len(temp_list)):
     star_names.append(temp_list[i][3])
@@ -36,17 +41,3 @@ df2 = pd.DataFrame(list(zip(star_names,distance,mass,radius)),coloumns = ['star_
 print(df2)
 
 df2.to_csv('bright_stars.csv')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
